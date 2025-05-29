@@ -1,18 +1,11 @@
-import { Menu, Search, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import logo from "../public/asset/Nigeria.jpg";
 
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const menuItems = [
-    "HOME",
-    "ABOUT US",
-    "PARTNERSHIPS",
-    "RESOURCES",
-    "TAPPAMS",
-    "CONTACT US",
-  ];
+  const menuItems = ["HOME", "ABOUT US", "PARTNERSHIPS", "CONTACT US"];
 
   // Toggle body scroll
   useEffect(() => {
@@ -59,7 +52,7 @@ export const Header = () => {
                   )}
                 </a>
               ))}
-              <Search className="h-5 w-5 xl:h-6 xl:w-6 text-red-500 cursor-pointer hover:scale-110 transition-transform" />
+              {/* <Search className="h-5 w-5 xl:h-6 xl:w-6 text-red-500 cursor-pointer hover:scale-110 transition-transform" /> */}
             </nav>
 
             {/* Mobile menu button */}

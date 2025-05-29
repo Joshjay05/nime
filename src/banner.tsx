@@ -15,12 +15,20 @@ export const NGOSourceBanner = () => (
             </div>
           </div>
           <div className="flex-1 text-center sm:text-left">
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed">
-              TAConnect has completed NGOsource's Equivalency Determination
-              process that certifies that our organization is equivalent to a US
-              public charity. As we look forward to more funding opportunities,
-              our certificate makes it easier for United States based donors to
-              collaborate with us.
+            <h1 className="text-3xl text-center text-green-800">About Us</h1>
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-10">
+              Nigerians in the Middle East and North Africa (NIME-North Africa)
+              is a vibrant, inclusive, and proactive community organization
+              established to foster unity, growth, and empowerment among
+              Nigerians living in the MENA region. Our core mission is to
+              connect Nigerians across borders, uphold our cultural heritage,
+              and provide a platform for mutual support, personal and
+              professional development, and global isocio-economic mpact. Our
+              community is built on the values of unity, service,
+              professionalism, transperancy , integrity and progress. We are
+              committed to enhancing the well-being of Nigerians in the diaspora
+              through educational initiatives, humanitarian projects,
+              professional development, and cultural engagement.
             </p>
           </div>
         </div>

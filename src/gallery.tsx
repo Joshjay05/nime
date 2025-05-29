@@ -36,15 +36,19 @@ export const TAPPAMSSection = () => (
               </h2>
               <SectionDivider />
               <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-4 sm:mb-6">
-                Submit your RFPs with our unique subsband system
+                {/* Submit your RFPs with our unique subsband system */}
               </p>
-              <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-                TAPPAMS
-              </h3>
+              {/* <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+                Why Us
+              </h3> */}
               <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-4 sm:mb-6 leading-relaxed">
-                Technical Assistance Provider Portal
-                <br />
-                and Award Management System
+                The NIME Community Online School exists to bridge the
+                educational gap for African children and teens in the Middle
+                East and North Africa. We provide consistent , high-quality
+                learning that honors cultural identity while preparing students
+                for a global future. I n a region where access to affordable,
+                Nigerian-rooted education is limited, we of fer a t rusted
+                solution that paren ts can rely on .
               </p>
               <Button className="bg-red-500 hover:bg-red-600 text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base">
                 LEARN MORE

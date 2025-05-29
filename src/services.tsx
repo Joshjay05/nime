@@ -18,16 +18,16 @@ export const WhatWeDo = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 mt-6 sm:mt-8">
           <div className="space-y-4 sm:space-y-6">
             <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-red-500 leading-tight">
-              Fostering Critical Shift of
-              <br />
-              TA Delivery in Nigeria
+              Unifying hearts across boundaries
             </h3>
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
-              TAConnect demonstrates optimal use of donor and government funds
-              through the deployment of cost-effective implementation models
-              that guarantee value for money and accountability through a
-              sustained and robust interface between donors, state governments
-              and TA providers to address specific TA needs.
+              We harness the power of technology, expert teachers, and community
+              partnerships to create engaging, flexible, and inclusive learning
+              experiences. Our live virtual classes, recorded lessons, group
+              projects, and mentorship programs are supported by qualified
+              educators who understand both the diaspora experience and global
+              educational trends. We also involve families and local networks to
+              ensure holistic student growth.
             </p>
           </div>
 

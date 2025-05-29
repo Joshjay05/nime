@@ -5,22 +5,24 @@ import { TAPPAMSSection } from "./gallery";
 import { Header } from "./header";
 import { HeroBanner } from "./hero";
 import { InfoCards } from "./info";
+import { Membership } from "./membership";
 import { Partnership } from "./Partnership";
+import { Projects } from "./projects";
 import { WhatWeDo } from "./services";
-import { Testimonials } from "./testimonials";
 
 const App = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
       <HeroBanner />
+      <Partnership />
       <NGOSourceBanner />
       <InfoCards />
       <WhatWeDo />
       <TAPPAMSSection />
-      <Partnership />
-      <Testimonials />
+      <Projects />
       <ChatWidget />
+      <Membership />
       <Footer />
     </div>
   );
