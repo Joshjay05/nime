@@ -1,7 +1,7 @@
 import { NGOSourceBanner } from "./banner";
 import { ChatWidget } from "./chat";
 import { Footer } from "./footer";
-import { TAPPAMSSection } from "./gallery";
+import { UniqueSection } from "./gallery";
 import { Header } from "./header";
 import { HeroBanner } from "./hero";
 import { InfoCards } from "./info";
@@ -19,7 +19,7 @@ const App = () => {
       <NGOSourceBanner />
       <InfoCards />
       <WhatWeDo />
-      <TAPPAMSSection />
+      <UniqueSection />
       <Projects />
       <ChatWidget />
       <Membership />

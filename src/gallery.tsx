@@ -3,7 +3,7 @@ import { Button } from "./components/ui/button";
 import { Card, CardContent } from "./components/ui/card";
 import { SectionDivider } from "./divider";
 
-export const TAPPAMSSection = () => (
+export const UniqueSection = () => (
   <section className="py-8 sm:py-12 lg:py-16 xl:py-20 bg-gray-50">
     <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-16">
