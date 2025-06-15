@@ -1,0 +1,1066 @@
+# CSS Fundamentals - Complete Lecture Notes
+
+## 1. CSS Syntax and Selectors
+
+### Basic CSS Syntax
+```css
+selector {
+    property: value;
+    property: value;
+}
+```
+
+### Types of Selectors
+
+#### Element Selectors
+```css
+/* Targets all paragraph elements */
+p {
+    color: blue;
+    font-size: 16px;
+}
+
+/* Targets all heading 1 elements */
+h1 {
+    color: red;
+    font-weight: bold;
+}
+```
+
+#### Class Selectors (.)
+```css
+/* Targets elements with class="highlight" */
+.highlight {
+    background-color: yellow;
+    padding: 10px;
+}
+
+/* Targets elements with class="btn" */
+.btn {
+    border: 2px solid black;
+    padding: 8px 16px;
+}
+```
+
+#### ID Selectors (#)
+```css
+/* Targets element with id="header" */
+#header {
+    background-color: navy;
+    color: white;
+    height: 80px;
+}
+
+/* Targets element with id="main-content" */
+#main-content {
+    width: 80%;
+    margin: 0 auto;
+}
+```
+
+#### Attribute Selectors
+```css
+/* Targets input elements with type="text" */
+input[type="text"] {
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+/* Targets elements with title attribute */
+[title] {
+    cursor: help;
+}
+
+/* Targets links that start with "https" */
+a[href^="https"] {
+    color: green;
+}
+```
+
+#### Pseudo-Classes
+```css
+/* Hover state */
+button:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+/* Focus state for form elements */
+input:focus {
+    outline: 2px solid blue;
+    background-color: lightyellow;
+}
+
+/* First child element */
+li:first-child {
+    font-weight: bold;
+}
+
+/* Every 3rd element */
+tr:nth-child(3n) {
+    background-color: #f0f0f0;
+}
+
+/* Odd rows */
+tr:nth-child(odd) {
+    background-color: #e8e8e8;
+}
+```
+
+#### Pseudo-Elements
+```css
+/* Add content before an element */
+.quote::before {
+    content: """;
+    font-size: 2em;
+    color: gray;
+}
+
+/* Add content after an element */
+.quote::after {
+    content: """;
+    font-size: 2em;
+    color: gray;
+}
+
+/* Style first line of paragraph */
+p::first-line {
+    font-weight: bold;
+    color: darkblue;
+}
+
+/* Style first letter */
+p::first-letter {
+    font-size: 3em;
+    float: left;
+    margin-right: 5px;
+}
+```
+
+### CSS Specificity and Cascade
+
+**Specificity Hierarchy (from highest to lowest):**
+1. Inline styles (style="...")
+2. IDs (#id)
+3. Classes (.class), attributes, pseudo-classes
+4. Elements and pseudo-elements
+
+```css
+/* Specificity = 1 (element) */
+p { color: red; }
+
+/* Specificity = 10 (class) */
+.text { color: blue; }
+
+/* Specificity = 100 (ID) */
+#content { color: green; }
+
+/* Specificity = 111 (ID + class + element) */
+#content .text p { color: purple; }
+```
+
+**Important Declaration:**
+```css
+p {
+    color: red !important; /* This will override other declarations */
+}
+```
+
+---
+
+## 2. Box Model
+
+### Understanding the Box Model
+
+Every HTML element is a rectangular box consisting of:
+- **Content**: The actual content (text, images)
+- **Padding**: Space between content and border
+- **Border**: Line around the padding
+- **Margin**: Space outside the border
+
+```css
+.box-example {
+    content: "Hello World";
+    padding: 20px;        /* Space inside the border */
+    border: 5px solid red; /* Border around the element */
+    margin: 15px;         /* Space outside the border */
+    width: 200px;         /* Content width */
+    height: 100px;        /* Content height */
+}
+```
+
+### Box-Sizing Property
+
+#### Content-Box (Default)
+```css
+.content-box {
+    box-sizing: content-box; /* Default */
+    width: 200px;
+    padding: 20px;
+    border: 5px solid black;
+    /* Total width = 200px + 40px + 10px = 250px */
+}
+```
+
+#### Border-Box (Recommended)
+```css
+.border-box {
+    box-sizing: border-box;
+    width: 200px;
+    padding: 20px;
+    border: 5px solid black;
+    /* Total width = 200px (includes padding and border) */
+}
+
+/* Apply to all elements */
+* {
+    box-sizing: border-box;
+}
+```
+
+### Margin and Padding Examples
+```css
+/* Individual sides */
+.spacing-example {
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+}
+
+/* Shorthand properties */
+.shorthand-example {
+    margin: 10px 15px 20px 25px; /* top right bottom left */
+    margin: 10px 15px;            /* top/bottom left/right */
+    margin: 10px;                 /* all sides */
+
+    padding: 20px 10px;           /* top/bottom left/right */
+}
+
+/* Centering with margin */
+.center-block {
+    width: 300px;
+    margin: 0 auto; /* Centers horizontally */
+}
+```
+
+---
+
+## 3. Display and Positioning
+
+### Display Property
+
+#### Block Elements
+```css
+.block-element {
+    display: block;
+    width: 100%;
+    background-color: lightblue;
+    padding: 10px;
+    margin: 5px 0;
+    /* Takes full width, stacks vertically */
+}
+```
+
+#### Inline Elements
+```css
+.inline-element {
+    display: inline;
+    background-color: yellow;
+    padding: 5px;
+    /* Width and height have no effect */
+    /* Flows with text, doesn't break lines */
+}
+```
+
+#### Inline-Block Elements
+```css
+.inline-block-element {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    background-color: lightgreen;
+    margin: 5px;
+    padding: 10px;
+    /* Flows inline but accepts width/height */
+}
+```
+
+#### None (Hidden)
+```css
+.hidden-element {
+    display: none; /* Completely removes from layout */
+}
+
+.invisible-element {
+    visibility: hidden; /* Hidden but takes up space */
+}
+```
+
+### Positioning
+
+#### Static (Default)
+```css
+.static-position {
+    position: static; /* Default - follows normal flow */
+    /* top, right, bottom, left properties ignored */
+}
+```
+
+#### Relative Positioning
+```css
+.relative-position {
+    position: relative;
+    top: 20px;    /* Moves 20px down from original position */
+    left: 30px;   /* Moves 30px right from original position */
+    background-color: lightcoral;
+    /* Original space is preserved */
+}
+```
+
+#### Absolute Positioning
+```css
+.container {
+    position: relative; /* Creates positioning context */
+    width: 400px;
+    height: 300px;
+    border: 2px solid black;
+}
+
+.absolute-position {
+    position: absolute;
+    top: 50px;     /* 50px from top of positioned parent */
+    right: 20px;   /* 20px from right of positioned parent */
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    /* Removed from normal flow */
+}
+```
+
+#### Fixed Positioning
+```css
+.fixed-header {
+    position: fixed;
+    top: 0;        /* Sticks to top of viewport */
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: navy;
+    color: white;
+    z-index: 1000; /* Stays above other content */
+}
+
+.fixed-button {
+    position: fixed;
+    bottom: 20px;  /* 20px from bottom of viewport */
+    right: 20px;   /* 20px from right of viewport */
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+```
+
+#### Sticky Positioning
+```css
+.sticky-nav {
+    position: sticky;
+    top: 0;        /* Sticks when scrolled to top */
+    background-color: white;
+    border-bottom: 1px solid gray;
+    padding: 10px;
+    z-index: 100;
+}
+```
+
+---
+
+## 4. Flexbox Layout System
+
+### Flex Container Properties
+
+#### Basic Flex Setup
+```css
+.flex-container {
+    display: flex;
+    /* Creates flex formatting context */
+    border: 2px solid blue;
+    padding: 10px;
+}
+
+.flex-item {
+    background-color: lightblue;
+    padding: 20px;
+    margin: 5px;
+    border: 1px solid navy;
+}
+```
+
+#### Flex Direction
+```css
+.flex-row {
+    display: flex;
+    flex-direction: row; /* Default - horizontal */
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column; /* Vertical */
+}
+
+.flex-row-reverse {
+    display: flex;
+    flex-direction: row-reverse; /* Horizontal reversed */
+}
+
+.flex-column-reverse {
+    display: flex;
+    flex-direction: column-reverse; /* Vertical reversed */
+}
+```
+
+#### Justify Content (Main Axis)
+```css
+.justify-start {
+    display: flex;
+    justify-content: flex-start; /* Default */
+}
+
+.justify-center {
+    display: flex;
+    justify-content: center; /* Center items */
+}
+
+.justify-end {
+    display: flex;
+    justify-content: flex-end; /* End alignment */
+}
+
+.justify-between {
+    display: flex;
+    justify-content: space-between; /* Equal space between */
+}
+
+.justify-around {
+    display: flex;
+    justify-content: space-around; /* Equal space around */
+}
+
+.justify-evenly {
+    display: flex;
+    justify-content: space-evenly; /* Equal space everywhere */
+}
+```
+
+#### Align Items (Cross Axis)
+```css
+.align-stretch {
+    display: flex;
+    align-items: stretch; /* Default - full height */
+    height: 200px;
+}
+
+.align-center {
+    display: flex;
+    align-items: center; /* Vertical center */
+    height: 200px;
+}
+
+.align-start {
+    display: flex;
+    align-items: flex-start; /* Top alignment */
+    height: 200px;
+}
+
+.align-end {
+    display: flex;
+    align-items: flex-end; /* Bottom alignment */
+    height: 200px;
+}
+```
+
+#### Flex Wrap
+```css
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    width: 300px;
+}
+
+.flex-nowrap {
+    display: flex;
+    flex-wrap: nowrap; /* Default - no wrapping */
+}
+
+.flex-wrap-reverse {
+    display: flex;
+    flex-wrap: wrap-reverse; /* Wrap in reverse */
+}
+```
+
+### Flex Item Properties
+
+#### Flex Grow, Shrink, and Basis
+```css
+.flex-item-1 {
+    flex-grow: 1; /* Takes 1 part of available space */
+    background-color: lightcoral;
+}
+
+.flex-item-2 {
+    flex-grow: 2; /* Takes 2 parts of available space */
+    background-color: lightgreen;
+}
+
+.flex-item-3 {
+    flex-shrink: 0; /* Won't shrink */
+    flex-basis: 200px; /* Base size of 200px */
+    background-color: lightblue;
+}
+
+/* Shorthand */
+.flex-shorthand {
+    flex: 1 0 auto; /* grow shrink basis */
+    flex: 1; /* Common: flex-grow: 1, flex-shrink: 1, flex-basis: 0 */
+}
+```
+
+#### Align Self
+```css
+.flex-container {
+    display: flex;
+    align-items: center;
+    height: 200px;
+}
+
+.align-self-start {
+    align-self: flex-start; /* Override container alignment */
+    background-color: yellow;
+}
+
+.align-self-end {
+    align-self: flex-end;
+    background-color: orange;
+}
+```
+
+---
+
+## 5. CSS Grid Layout System
+
+### Grid Container Properties
+
+#### Basic Grid Setup
+```css
+.grid-container {
+    display: grid;
+    grid-template-columns: 200px 200px 200px; /* 3 columns */
+    grid-template-rows: 100px 100px; /* 2 rows */
+    gap: 20px; /* Space between grid items */
+    border: 2px solid green;
+    padding: 20px;
+}
+
+.grid-item {
+    background-color: lightgreen;
+    padding: 20px;
+    border: 1px solid darkgreen;
+    text-align: center;
+}
+```
+
+#### Fractional Units (fr)
+```css
+.grid-fr {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Proportional columns */
+    grid-template-rows: 1fr 2fr; /* Proportional rows */
+    height: 400px;
+    gap: 10px;
+}
+```
+
+#### Repeat Function
+```css
+.grid-repeat {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    grid-template-rows: repeat(3, 100px); /* 3 rows of 100px each */
+    gap: 15px;
+}
+
+.grid-auto-fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    /* Creates responsive columns */
+}
+```
+
+#### Grid Areas
+```css
+.grid-layout {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+    grid-template-columns: 200px 1fr 1fr;
+    grid-template-rows: 80px 1fr 60px;
+    height: 100vh;
+    gap: 10px;
+}
+
+.header { grid-area: header; background-color: navy; color: white; }
+.sidebar { grid-area: sidebar; background-color: lightgray; }
+.main { grid-area: main; background-color: white; }
+.footer { grid-area: footer; background-color: darkgray; color: white; }
+```
+
+### Grid Item Properties
+
+#### Grid Column and Row
+```css
+.grid-item-span {
+    grid-column: 1 / 3; /* Spans from column 1 to 3 */
+    grid-row: 2 / 4; /* Spans from row 2 to 4 */
+    background-color: yellow;
+}
+
+.grid-item-span-shorthand {
+    grid-column: span 2; /* Spans 2 columns */
+    grid-row: span 3; /* Spans 3 rows */
+    background-color: orange;
+}
+
+.grid-item-placement {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: lightblue;
+}
+```
+
+---
+
+## 6. Float and Clear (Legacy)
+
+### Float Property
+```css
+.float-left {
+    float: left;
+    width: 200px;
+    height: 150px;
+    background-color: lightcoral;
+    margin: 0 20px 20px 0;
+}
+
+.float-right {
+    float: right;
+    width: 200px;
+    height: 150px;
+    background-color: lightblue;
+    margin: 0 0 20px 20px;
+}
+
+.float-text {
+    /* Text flows around floated elements */
+    line-height: 1.6;
+}
+```
+
+### Clear Property
+```css
+.clear-both {
+    clear: both; /* Clears both left and right floats */
+    background-color: yellow;
+    padding: 20px;
+}
+
+.clear-left {
+    clear: left; /* Clears only left floats */
+}
+
+.clear-right {
+    clear: right; /* Clears only right floats */
+}
+
+/* Clearfix for container with floated children */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+```
+
+---
+
+## 7. Typography and Text Properties
+
+### Font Properties
+```css
+.typography-example {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600; /* or bold, normal, 100-900 */
+    font-style: italic; /* or normal, oblique */
+    line-height: 1.6; /* 1.6 times font size */
+    text-align: center; /* left, right, center, justify */
+    text-decoration: underline; /* none, underline, line-through */
+    text-transform: uppercase; /* lowercase, capitalize, none */
+    letter-spacing: 2px;
+    word-spacing: 4px;
+}
+```
+
+### Web Fonts
+```css
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* Custom Font */
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('fonts/mycustomfont.woff2') format('woff2'),
+         url('fonts/mycustomfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.custom-font {
+    font-family: 'MyCustomFont', Arial, sans-serif;
+}
+
+.google-font {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+```
+
+### Advanced Typography
+```css
+.advanced-text {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-indent: 2em; /* First line indentation */
+    white-space: nowrap; /* prevent wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Show ... when text overflows */
+}
+
+.multiline-ellipsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Show only 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+```
+
+---
+
+## 8. Colors and Backgrounds
+
+### Color Values
+```css
+.color-examples {
+    /* Named Colors */
+    color: red;
+    background-color: lightblue;
+
+    /* Hexadecimal */
+    color: #ff0000; /* Red */
+    background-color: #00ff00; /* Green */
+    border-color: #0000ff; /* Blue */
+
+    /* RGB */
+    color: rgb(255, 0, 0); /* Red */
+    background-color: rgb(0, 255, 0); /* Green */
+
+    /* RGBA (with transparency) */
+    background-color: rgba(255, 0, 0, 0.5); /* 50% transparent red */
+
+    /* HSL (Hue, Saturation, Lightness) */
+    color: hsl(0, 100%, 50%); /* Red */
+    background-color: hsl(120, 100%, 50%); /* Green */
+
+    /* HSLA (with transparency) */
+    background-color: hsla(240, 100%, 50%, 0.3); /* 30% transparent blue */
+}
+```
+
+### Background Properties
+```css
+.background-examples {
+    /* Background Color */
+    background-color: #f0f0f0;
+
+    /* Background Image */
+    background-image: url('images/pattern.jpg');
+    background-repeat: no-repeat; /* repeat, repeat-x, repeat-y */
+    background-position: center center; /* top, bottom, left, right, center */
+    background-size: cover; /* contain, cover, 100px 200px, 50% 75% */
+    background-attachment: fixed; /* scroll, fixed, local */
+
+    /* Shorthand */
+    background: url('bg.jpg') no-repeat center center / cover fixed;
+}
+
+.multiple-backgrounds {
+    background-image:
+        url('overlay.png'),
+        url('background.jpg');
+    background-position:
+        top left,
+        center center;
+    background-repeat:
+        no-repeat,
+        no-repeat;
+    background-size:
+        100px 100px,
+        cover;
+}
+```
+
+### Gradients
+```css
+.gradient-examples {
+    /* Linear Gradient */
+    background: linear-gradient(to right, red, blue);
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+    background: linear-gradient(to bottom, rgba(255,0,0,0.8), rgba(0,0,255,0.8));
+
+    /* Radial Gradient */
+    background: radial-gradient(circle, red, blue);
+    background: radial-gradient(ellipse at center, yellow, orange, red);
+
+    /* Multiple Color Stops */
+    background: linear-gradient(
+        to right,
+        red 0%,
+        yellow 25%,
+        green 50%,
+        blue 75%,
+        purple 100%
+    );
+}
+```
+
+---
+
+## 9. Borders and Shadows
+
+### Border Properties
+```css
+.border-examples {
+    /* Individual border sides */
+    border-top: 2px solid red;
+    border-right: 3px dashed blue;
+    border-bottom: 4px dotted green;
+    border-left: 5px double orange;
+
+    /* Shorthand */
+    border: 2px solid black;
+
+    /* Border styles */
+    border-style: solid; /* dotted, dashed, double, groove, ridge, inset, outset */
+    border-width: thin; /* medium, thick, or specific values */
+    border-color: #333;
+
+    /* Rounded corners */
+    border-radius: 10px; /* All corners */
+    border-radius: 10px 20px; /* top-left/bottom-right, top-right/bottom-left */
+    border-radius: 10px 15px 20px 25px; /* top-left, top-right, bottom-right, bottom-left */
+
+    /* Individual corner radius */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 25px;
+}
+
+.creative-borders {
+    /* Pill shape */
+    border-radius: 50px;
+
+    /* Circle (for square elements) */
+    border-radius: 50%;
+
+    /* Fancy shapes */
+    border-radius: 10px 50px 10px 50px;
+}
+```
+
+### Box Shadow
+```css
+.shadow-examples {
+    /* Basic shadow */
+    box-shadow: 5px 5px 10px gray;
+
+    /* Multiple values: offset-x offset-y blur-radius color */
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+
+    /* Inset shadow */
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2);
+
+    /* Multiple shadows */
+    box-shadow:
+        0 2px 4px rgba(0,0,0,0.1),
+        0 8px 16px rgba(0,0,0,0.1);
+
+    /* Spread radius */
+    box-shadow: 0 0 0 5px red; /* Creates border-like effect */
+
+    /* Complex shadow */
+    box-shadow:
+        0 1px 3px rgba(0,0,0,0.12),
+        0 1px 2px rgba(0,0,0,0.24);
+}
+
+.hover-shadow {
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.hover-shadow:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+```
+
+### Text Shadow
+```css
+.text-shadow-examples {
+    /* Basic text shadow */
+    text-shadow: 2px 2px 4px gray;
+
+    /* Multiple values: offset-x offset-y blur-radius color */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+
+    /* Multiple shadows */
+    text-shadow:
+        1px 1px 0px white,
+        2px 2px 4px black;
+
+    /* Glow effect */
+    text-shadow: 0 0 10px #00ff00;
+
+    /* 3D effect */
+    text-shadow:
+        1px 1px 0px #ccc,
+        2px 2px 0px #c9c9c9,
+        3px 3px 0px #bbb,
+        4px 4px 0px #b9b9b9,
+        5px 5px 0px #aaa,
+        6px 6px 1px rgba(0,0,0,.1);
+}
+```
+
+---
+
+## Practice Examples and Common Patterns
+
+### Card Component
+```css
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 24px;
+    margin: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.card-content {
+    color: #666;
+    line-height: 1.6;
+}
+```
+
+### Navigation Bar
+```css
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #333;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+```
+
+### Responsive Grid Layout
+```css
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid-item {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+```
+
+## Key Takeaways
+
+1. **Master the Box Model** - Understanding content, padding, border, and margin is crucial
+2. **Learn Flexbox and Grid** - Modern layout systems that solve most positioning challenges
+3. **Practice Specificity** - Know how CSS determines which styles to apply
+4. **Use Box-Sizing: Border-Box** - Makes sizing more predictable
+5. **Understand Document Flow** - How elements naturally position themselves
+6. **Experiment with Developer Tools** - Essential for debugging and learning
+
+## Homework Assignment
+
+Create a responsive card layout using:
+- CSS Grid for the overall layout
+- Flexbox for card internal structure
+- Proper use of the box model
+- Hover effects with transitions
+- At least 3 different selector types
+- Custom color scheme and typography

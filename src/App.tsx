@@ -10,6 +10,7 @@ import { Partnership } from "./Partnership";
 import { Projects } from "./projects";
 import { WhatWeDo } from "./services";
 import ExecutiveSection from "@/Executives.tsx";
+import TrusteeAnnouncement from "./Trustee";
 
 const App = () => {
   return (
@@ -22,7 +23,8 @@ const App = () => {
       <WhatWeDo />
       <UniqueSection />
       <Projects />
-        <ExecutiveSection/>
+      <ExecutiveSection />
+      <TrusteeAnnouncement />
       <ChatWidget />
       <Membership />
       <Footer />
