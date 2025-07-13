@@ -1,4 +1,4 @@
-import bg from "../public/asset/bg.jpeg";
+import bg from "../public/asset/herrro.jpg";
 
 export const HeroBanner = () => (
   <section className="relative h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] mt-14 sm:mt-16 lg:mt-20 overflow-hidden">
